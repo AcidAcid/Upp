@@ -3,7 +3,6 @@
         <meta charset="utf-8">
         <title>Калькулятор</title>
         <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
-        <!-- <link rel="stylesheet" href="{{url_for('static', filename="css/bootstrap.min.css")}}" media="screen" type="text/css"> -->
         <style type="text/css">
             td {
                 border-collapse: collapse;;
@@ -85,50 +84,52 @@
         </nav>
     -->
 
-        <div class="container" style="position: relative; width: 50%;border:1px solid black; left:300px; top:50px;">
-            <form method="post" class="form-horizontal">
-                <div class="form-group" style="position:inherit; margin: 50px;">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td colspan="5">
-                                    <input type="text" size="23" placeholder="0"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><button><span>7</span></button></td>
-                                <td><button><span>8</span></button></td>
-                                <td><button><span>9</span></button></td>
-                                <td><button class="operation">/</button></td>
-                                <td><button class="operation">%</button></td>
-                            </tr>
-                            <tr>
-                                <td><button><span>4</span></button></td>
-                                <td><button><span>5</span></button></td>
-                                <td><button><span>6</span></button></td>
-                                <td><button class="operation">+</button></td>
-                                <td><button class="operation">-</button></td>
-                            </tr>
-                            <tr>
-                                <td><button><span>1</span></button></td>
-                                <td><button><span>2</span></button></td>
-                                <td><button><span>3</span></button></td>
-                                <td><button class="operation">*</button></td>
-                            </tr>
-                            <tr>
-                                <td><button><span>0</span></button></td>
-                                <td>
-                                    <button ><span>00</span></button>
-                                </td>
-                                <td>
-                                    <button ><span>.</span></button>
-                                </td>
-                                <td colspan="2"><button style="color:red; font-size: 20px;">=</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </form>
+        <div class="container" style="position: relative; width: 50%;border:1px solid black; left:320px; top:50px;">
+            <div class="form-group" style="position:inherit; margin: 50px;">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td colspan="5">
+                                <input type="text" size="23" placeholder="0"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><button><span>7</span></button></td>
+                            <td><button><span>8</span></button></td>
+                            <td><button><span>9</span></button></td>
+                            <td><button class="operation">/</button></td>
+                            <td><button class="operation">%</button></td>
+                        </tr>
+                        <tr>
+                            <td><button><span>4</span></button></td>
+                            <td><button><span>5</span></button></td>
+                            <td><button><span>6</span></button></td>
+                            <td><button class="operation">+</button></td>
+                            <td><button class="operation">-</button></td>
+                        </tr>
+                        <tr>
+                            <td><button><span>1</span></button></td>
+                            <td><button><span>2</span></button></td>
+                            <td><button><span>3</span></button></td>
+                            <td><button class="operation">*</button></td>
+                        </tr>
+                        <tr>
+                            <td><button><span>0</span></button></td>
+                            <td>
+                                <button ><span>00</span></button>
+                            </td>
+                            <td>
+                                <button ><span>.</span></button>
+                            </td>
+                            <td colspan="2">
+                                <form method="post" class="form-horizontal">
+                                    <button style="color:red; font-size: 20px;">=</button>
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </body>
 </html>
