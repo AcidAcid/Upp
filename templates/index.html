@@ -2,134 +2,56 @@
     <head>
         <meta charset="utf-8">
         <title>Калькулятор</title>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}" />
         <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
-        <style type="text/css">
-            td {
-                border-collapse: collapse;;
-                border: none;
-                height: 60px;
-                width: 60px;
-                text-align: center;
-            }
-            table {
-                border-spacing:30px;
-                border: 1px solid black;
-                position:inherit;
-            }
-            input {
-                position: inherit;;
-                left: 30px;
-                text-align: right;
-                font-size: 30px;
-            }
-            .operation {
-                color: green;
-                font-size: 20px;
-            }
-            button {
-                width:100%;
-                height: 115%;
-                border:1px solid black;
-                border-radius: 7px;
-                background-color: white;
-            }
-            span {
-                color:blue;
-                font-size: 20px;
-            }
-        </style>
     </head>
     <body>
-    <!--
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Brand</a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">Link</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">One more separated link</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <form class="navbar-form navbar-left" role="search">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                        </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
-                    </form>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Link</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    -->
-
-        <div class="container" style="position: relative; width: 50%;border:1px solid black; left:320px; top:50px;">
-            <div class="form-group" style="position:inherit; margin: 50px;">
-                <table>
-                    <tbody>
-                        <tr>
-                            <td colspan="5">
-                                <input type="text" size="23" placeholder="0"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><button><span>7</span></button></td>
-                            <td><button><span>8</span></button></td>
-                            <td><button><span>9</span></button></td>
-                            <td><button class="operation">/</button></td>
-                            <td><button class="operation">%</button></td>
-                        </tr>
-                        <tr>
-                            <td><button><span>4</span></button></td>
-                            <td><button><span>5</span></button></td>
-                            <td><button><span>6</span></button></td>
-                            <td><button class="operation">+</button></td>
-                            <td><button class="operation">-</button></td>
-                        </tr>
-                        <tr>
-                            <td><button><span>1</span></button></td>
-                            <td><button><span>2</span></button></td>
-                            <td><button><span>3</span></button></td>
-                            <td><button class="operation">*</button></td>
-                        </tr>
-                        <tr>
-                            <td><button><span>0</span></button></td>
-                            <td>
-                                <button ><span>00</span></button>
-                            </td>
-                            <td>
-                                <button ><span>.</span></button>
-                            </td>
-                            <td colspan="2">
-                                <form method="post" class="form-horizontal">
-                                    <button style="color:red; font-size: 20px;">=</button>
-                                </form>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div class="container">
+            <table>
+                <tbody>
+                    <tr>
+                        <td colspan="5">
+                            <input id="result" type="text" size="23" placeholder="0"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><button id="clearBtn">Clear</button></td>
+                        <td colspan="4" id="userInput">
+                            <label>Empty</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="NaO"><button><span>7</span></button></td>
+                        <td class="NaO"><button><span>8</span></button></td>
+                        <td class="NaO"><button><span>9</span></button></td>
+                        <td class="NaO"><button class="operation">/</button></td>
+                        <td class="NaO"><button class="operation">%</button></td>
+                    </tr>
+                    <tr>
+                        <td class="NaO"><button><span>4</span></button></td>
+                        <td class="NaO"><button><span>5</span></button></td>
+                        <td class="NaO"><button><span>6</span></button></td>
+                        <td class="NaO"><button class="operation">+</button></td>
+                        <td class="NaO"><button class="operation">-</button></td>
+                    </tr>
+                    <tr>
+                        <td class="NaO"><button><span>1</span></button></td>
+                        <td class="NaO"><button><span>2</span></button></td>
+                        <td class="NaO"><button><span>3</span></button></td>
+                        <td class="NaO"><button class="operation">*</button></td>
+                    </tr>
+                    <tr>
+                        <td class="NaO"><button><span>0</span></button></td>
+                        <td class="NaO"><button ><span>00</span></button></td>
+                        <td class="NaO"><button ><span>.</span></button></td>
+                        <td colspan="2"  class="NaO" style="padding-top:5px;">
+                            <form method="post">
+                                <button>=</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </body>
 </html>
