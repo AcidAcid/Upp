@@ -11,20 +11,16 @@ $('#clearBtn').on('click',function(event) {
     label.text("Empty");
     input.attr('value', "0");
     dump = '';
+    evaluated = false;
 });
 
 $(".number").on('click', function(event) {
     var btnText = $(this).text(); // текст нажатой кнопки
 
     // если значение уже вычислили
-    if(evaluated) {
-        label.text('Empty');
-        input.attr('value', '0');
-        evaluated = false;
-    }
+    isEval();
 
     value = input.attr('value');
-
     if (value == '0'){
         if (btnText == '0' || btnText == '00' ) {
             value = '0';
@@ -46,6 +42,7 @@ $(".operation").on('click', function(event){
     var op = $(this).text(); // какой оператор используется
     value = input.attr('value');
 
+    isEval();
     // проверить, ввёл ли пользователь число
     if(value[value.length - 1] != '.') {
         dump += value + op;
@@ -61,7 +58,7 @@ $('#evaluate').on('click', function(event){
         dump += value;
         var res = eval(dump);
 
-        label.text(dump + "=" + res);
+        label.text(dump + " = " + res);
         input.attr('value', res)
         dump = '';
 
@@ -69,3 +66,23 @@ $('#evaluate').on('click', function(event){
     }
 
 });
+
+$('#delChar').on('click', function(event){
+    value = input.attr('value');
+
+    isEval();
+    if (value.length > 1) {
+        input.attr('value', value.slice(0, value.length - 1));
+    }
+});
+
+// вычислено ли значение
+function isEval() {
+    if(evaluated) {
+        label.text('Empty');
+        input.attr('value', '0');
+        evaluated = false;
+        return true;
+    }
+    return false;
+}
