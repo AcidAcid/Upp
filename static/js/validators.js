@@ -1,17 +1,29 @@
 var input = $('#result');
 var label = $('label');
 
+var value = ''; // операнд
+var dump = ''; // store user input
+var evaluated = false;
+
 $('#clearBtn').on('click',function(event) {
     // очищает текст метки
     // и переменную содержащую введенные данные
     label.text("Empty");
     input.attr('value', "0");
-    entered = false;
+    dump = '';
 });
 
 $(".number").on('click', function(event) {
     var btnText = $(this).text(); // текст нажатой кнопки
-    var value = input.attr('value');
+
+    // если значение уже вычислили
+    if(evaluated) {
+        label.text('Empty');
+        input.attr('value', '0');
+        evaluated = false;
+    }
+
+    value = input.attr('value');
 
     if (value == '0'){
         if (btnText == '0' || btnText == '00' ) {
@@ -27,12 +39,33 @@ $(".number").on('click', function(event) {
         value += btnText;
     }
 
-
     input.attr('value', value);
 });
 
-$(".operators").on('click', function(event){
+$(".operation").on('click', function(event){
+    var op = $(this).text(); // какой оператор используется
+    value = input.attr('value');
+
     // проверить, ввёл ли пользователь число
-    // в значение метки записать число
-    // очищать input
+    if(value[value.length - 1] != '.') {
+        dump += value + op;
+        input.attr('value', '0'); // очищать input
+        label.text(dump); // записываем в метку все что ввёл пользователь
+    }
+});
+
+$('#evalute').on('click', function(event){
+    value = input.attr('value');
+
+    if(value[value.length - 1] != '.' && !evaluated) {
+        dump += value;
+        var res = eval(dump);
+
+        label.text(dump + "=" + res);
+        input.attr('value', res)
+        dump = '';
+
+        evaluated = true; // вычислено
+    }
+
 });
