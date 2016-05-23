@@ -54,7 +54,7 @@ $(".operation").on('click', function(event){
     }
 });
 
-$('#evalute').on('click', function(event){
+$('#evaluate').on('click', function(event){
     value = input.attr('value');
 
     if(value[value.length - 1] != '.' && !evaluated) {
