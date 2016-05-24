@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Калькулятор</title>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}" />
+        <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+    </head>
+    </head>
+    <body>
+        <div class="container">
+            <table>
+                <tbody>
+                    <tr>
+                        <td colspan="5">
+                            <input id="result" type="text" size="23" value="0" readonly />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><button id="clearBtn">Clear</button></td>
+                        <td colspan="4" id="userInput">
+                            <label>Empty</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="NaO"><button class="number"><span>7</span></button></td>
+                        <td class="NaO"><button class="number"><span>8</span></button></td>
+                        <td class="NaO"><button class="number"><span>9</span></button></td>
+                        <td class="NaO"><button class="operation"> / </button></td>
+                        <td class="NaO"><button class="operation"> % </button></td>
+                    </tr>
+                    <tr>
+                        <td class="NaO"><button class="number"><span>4</span></button></td>
+                        <td class="NaO"><button class="number"><span>5</span></button></td>
+                        <td class="NaO"><button class="number"><span>6</span></button></td>
+                        <td class="NaO"><button class="operation"> + </button></td>
+                        <td class="NaO"><button class="operation"> - </button></td>
+                    </tr>
+                    <tr>
+                        <td class="NaO"><button class="number"><span>1</span></button></td>
+                        <td class="NaO"><button class="number"><span>2</span></button></td>
+                        <td class="NaO"><button class="number"><span>3</span></button></td>
+                        <td class="NaO"><button class="operation"> * </button></td>
+                        <td class="NaO"><button id="delChar">C</button></td>
+                    </tr>
+                    <tr>
+                        <td class="NaO"><button class="number"><span>0</span></button></td>
+                        <td class="NaO"><button class="number"><span>00</span></button></td>
+                        <td class="NaO"><button class="number"><span>.</span></button></td>
+                        <td colspan="2"  class="NaO" style="padding-top:5px;">
+                                <button id='evaluate'>=</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <script src="{{url_for('static', filename='js/validators.js')}}"></script>
+    </body>
+</html>
