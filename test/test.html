@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test</title>
+	<script type="text/javascript" src="../static/js/jquery.min.js"></script>
+    <!-- for test purpose -->
+    <link rel="stylesheet" type="text/css" href="qunit-1.23.1.css"></script>
+    <script type="text/javascript" src="qunit-1.23.1.js"></script>
+    <script type="text/javascript" src="cal_test.js"></script>
+    <script type="text/javascript" src="../static/js/validators.js"></script>
+
+    <!-- test end -->
+
+</head>
+<body>
+	<!-- test  -->
+	<div id="qunit"></div>
+	<div id="qunit-fixture"></div>
+	<script>
+	    QUnit.test( "Простейший тест", function( assert ) {
+	      evaluated = true;
+	      assert.equal( isEval(), true, "We expect value to be hello" );
+	    });
+	</script>
+	<!-- test -->
+</body>
+</html>
